@@ -64,6 +64,125 @@ format: html
 ```
 
 ```{=html}
+<div style="max-width:700px; margin:2rem auto; text-align:center;">
+<h2 style="font-size:1.3rem; margin-bottom:0.5rem;">Shot Map Preview</h2>
+```
+
+```{r}
+#| label: preview-packages
+#| echo: false
+#| message: false
+#| warning: false
+library(data.table)
+library(ggplot2)
+```
+
+```{r}
+#| label: preview-load-data
+#| echo: false
+#| message: false
+#| warning: false
+shots_raw <- fread("data/shots_2025.csv",
+                   select = c("arenaAdjustedXCord", "arenaAdjustedYCord",
+                              "playerPositionThatDidEvent", "event"))
+```
+
+```{r}
+#| label: preview-prepare-data
+#| echo: false
+shots <- shots_raw[
+  event %in% c("SHOT", "GOAL") &
+  playerPositionThatDidEvent %in% c("C", "D", "L", "R")
+]
+
+shots[, position_label := fcase(
+  playerPositionThatDidEvent == "C", "Center",
+  playerPositionThatDidEvent == "D", "Defense",
+  playerPositionThatDidEvent == "L", "Left Wing",
+  playerPositionThatDidEvent == "R", "Right Wing"
+)]
+
+set.seed(42)
+shots_sample <- shots[sample(.N, max(1, floor(.N * 0.10)))]
+```
+
+```{r}
+#| label: preview-shot-map
+#| echo: false
+#| message: false
+#| warning: false
+#| fig-width: 8
+#| fig-height: 6.5
+pos_colors <- c("Center" = "#E74C3C", "Defense" = "#3498DB",
+                 "Left Wing" = "#2ECC71", "Right Wing" = "#9B59B6")
+
+rink_lines <- data.frame(
+  x = c(-100, 100, 0, 0, 25, 25, -25, -25, 89, 89, -89, -89),
+  xend = c(-100, 100, 0, 0, 25, 25, -25, -25, 89, 89, -89, -89),
+  y = c(-42.5, -42.5, -42.5, 42.5, -42.5, 42.5, -42.5, 42.5, -42.5, 42.5, -42.5, 42.5),
+  yend = c(42.5, 42.5, -42.5, 42.5, -42.5, 42.5, -42.5, 42.5, -42.5, 42.5, -42.5, 42.5),
+  color = c("#888", "#888", rep("#C0392B", 2), rep("#2980B9", 4), rep("#C0392B", 4)),
+  linewidth = c(2, 2, rep(2.5, 2), rep(2.5, 4), rep(1.5, 4))
+)
+
+circle_path <- function(cx, cy, r, n = 100) {
+  theta <- seq(0, 2 * pi, length.out = n)
+  data.frame(x = cx + r * cos(theta), y = cy + r * sin(theta))
+}
+
+faceoff_top    <- circle_path(69, 22, 15)
+faceoff_bot    <- circle_path(69, -22, 15)
+faceoff_top_l  <- circle_path(-69, 22, 15)
+faceoff_bot_l  <- circle_path(-69, -22, 15)
+crease_r       <- circle_path(89, 0, 6)
+crease_l       <- circle_path(-89, 0, 6)
+
+ggplot() +
+  geom_rect(aes(xmin = -100, xmax = 100, ymin = -42.5, ymax = 42.5),
+            fill = "#DBE8F5", color = "#888", linewidth = 1.2) +
+  geom_segment(data = rink_lines,
+               aes(x = x, xend = xend, y = y, yend = yend,
+                   color = color, linewidth = linewidth),
+               show.legend = FALSE) +
+  scale_color_identity() +
+  scale_linewidth_identity() +
+  geom_polygon(data = faceoff_top, aes(x = x, y = y),
+               fill = NA, color = "#C0392B", linewidth = 0.8, linetype = "dotted") +
+  geom_polygon(data = faceoff_bot, aes(x = x, y = y),
+               fill = NA, color = "#C0392B", linewidth = 0.8, linetype = "dotted") +
+  geom_polygon(data = faceoff_top_l, aes(x = x, y = y),
+               fill = NA, color = "#C0392B", linewidth = 0.8, linetype = "dotted") +
+  geom_polygon(data = faceoff_bot_l, aes(x = x, y = y),
+               fill = NA, color = "#C0392B", linewidth = 0.8, linetype = "dotted") +
+  geom_polygon(data = crease_r, aes(x = x, y = y),
+               fill = alpha("#2980B9", 0.08), color = "#2980B9", linewidth = 1) +
+  geom_polygon(data = crease_l, aes(x = x, y = y),
+               fill = alpha("#2980B9", 0.08), color = "#2980B9", linewidth = 1) +
+  geom_point(data = shots_sample,
+             aes(x = arenaAdjustedXCord, y = arenaAdjustedYCord, color = position_label),
+             size = 1.2, alpha = 0.45) +
+  scale_color_manual(values = pos_colors, name = "Position") +
+  coord_equal(xlim = c(-100, 100), ylim = c(-55, 55)) +
+  labs(title = "NHL Shot Positions — 2025 Season", x = NULL, y = NULL) +
+  theme_void() +
+  theme(
+    plot.title = element_text(size = 16, face = "bold", hjust = 0.5, margin = margin(b = 5)),
+    legend.position = "right",
+    legend.title = element_text(size = 11),
+    legend.text = element_text(size = 10),
+    plot.margin = margin(10, 10, 10, 10)
+  )
+```
+
+```{=html}
+<p style="font-size:0.9rem; color:#888; margin-top:0.5rem;">
+  Shot locations for the 2025 season.
+  <a href="exploration.qmd">Explore all seasons interactively &rarr;</a>
+</p>
+</div>
+```
+
+```{=html}
 <div style="max-width:600px; margin:2rem auto; text-align:center; font-size:0.95rem; color:#888; line-height:1.7;">
   <p>
     Shot data is sourced from <a href="https://moneypuck.com">MoneyPuck</a> and includes
