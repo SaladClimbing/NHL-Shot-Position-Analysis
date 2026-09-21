@@ -1,0 +1,30 @@
+[
+  {
+    "objectID": "story.html",
+    "href": "story.html",
+    "title": "Where Do NHL Goals Come From?",
+    "section": "",
+    "text": "Every game, hundreds of pucks fly toward the net.\n\n\nBut only some of them come from dangerous places.\n\n\nA data story across 19 NHL seasons.\n\n\n\n\nThe Question\nSince 2007, over 2 million shot attempts have been fired across the NHL. Some found the back of the net. Most didn’t. The data doesn’t lie — it maps out exactly where offense lives on the ice, and where it dies.\nWhere do the goals actually come from?\n\n\n\n\n2M+\n\n\nTotal Shots\n\n\n\n\n~150K\n\n\nGoals Scored\n\n\n\n\n19\n\n\nSeasons Analyzed\n\n\n\n\n\nAct I: The Big Picture\nZoom out. Every shot on the ice, from every season, overlaid on a single rink. The bright spots reveal the hot zones — the areas where offense concentrates.\nThe glow is brightest between the faceoff circles, just above the goal line. This is the slot — the most dangerous real estate in hockey. The closer you are to the net, the more likely you are to score.\nBut not all players operate in the same neighborhoods.\n\n\n\nAct II: The Cast of Characters\nEvery position has its own shooting identity.\nCenters own the slot. They lurk in the high-traffic corridor right in front of the net, reading the play, waiting for the pass, and pouncing on loose pucks. Their heatmap is a concentrated glow right in the heart of the offensive zone.\nDefensemen shoot from everywhere — but especially from the point, near the blue line. Their job isn’t always to score. It’s to get pucks through traffic, create rebounds, and keep plays alive. Their shots come from further out, from wider angles, from places where goals are rare but chaos is abundant.\nLeft Wings and Right Wings work the edges. They patrol the faceoff circles and the half-boards, looking for shooting lanes that the centers and defensemen can’t find. Their footprints are asymmetric — each wing favoring their side of the ice, carving out their own territory.\nEvery position plays a different game. The ice is not one story — it’s four.\n\n\n\nAct III: The Goal Line\nNot all shots are created equal. A blast from the blue line and a tap-in from the crease are both “shots” — but they don’t score at the same rate.\nThe data makes this brutally clear. Shot density spreads across the entire offensive zone — wide, diffuse, hopeful. Goal density collapses into a tight cluster right in front of the net. The gap between where shots come from and where goals happen is the gap between hope and results.\nDistance kills scoring chances. From the blue line, hundreds of shots yield almost no goals. From the crease, almost every shot is dangerous. The ice has a geography, and the goalies know it — but the shooters do, too.\n\n\n\nThe Takeaway\nThe NHL is a game of angles and inches. This data tells a clear story:\n\nThe slot is king. The area between the faceoff circles is where games are won.\nPosition dictates opportunity. Centers get the best looks. Defensemen create from a distance. Wingers find edges.\nProximity = probability. Every foot closer to the net dramatically increases your chance of scoring.\n\nThe ice surface hasn’t changed in a century. But how teams use it — that’s the game within the game.\n\n\n\nReady to dig deeper?\n\n\nHead to the Exploration page to filter by season, position, and more."
+  },
+  {
+    "objectID": "exploration.html",
+    "href": "exploration.html",
+    "title": "Exploration",
+    "section": "",
+    "text": "Dive into 19 seasons of NHL shot data (2007–2025). Select a season from the dropdown to see where shots originate on the ice for that year. The heatmap shows shot density — brighter areas mean more shots come from there. The scatter points show individual shot locations, colored by player position.\nHow to use this page:\n\nSeason dropdown (top-left) — Switch between any season from 2007 to 2025, or select “All Seasons” to see everything at once.\nLegend — Click a position name in the legend to toggle it on or off.\nHover — Hover over any point or heatmap cell for details.\n\n\n\n\n\n\n\nNote\n\n\n\nShot data is sourced from MoneyPuck and includes all shot attempts (shots on goal, missed shots, and blocked shots) as well as goals. Positions shown are Center, Defense, Left Wing, and Right Wing."
+  },
+  {
+    "objectID": "exploration.html#explore-nhl-shot-data-by-season",
+    "href": "exploration.html#explore-nhl-shot-data-by-season",
+    "title": "Exploration",
+    "section": "",
+    "text": "Dive into 19 seasons of NHL shot data (2007–2025). Select a season from the dropdown to see where shots originate on the ice for that year. The heatmap shows shot density — brighter areas mean more shots come from there. The scatter points show individual shot locations, colored by player position.\nHow to use this page:\n\nSeason dropdown (top-left) — Switch between any season from 2007 to 2025, or select “All Seasons” to see everything at once.\nLegend — Click a position name in the legend to toggle it on or off.\nHover — Hover over any point or heatmap cell for details.\n\n\n\n\n\n\n\nNote\n\n\n\nShot data is sourced from MoneyPuck and includes all shot attempts (shots on goal, missed shots, and blocked shots) as well as goals. Positions shown are Center, Defense, Left Wing, and Right Wing."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "NHL Shot Position Analysis",
+    "section": "",
+    "text": "NHL Shot Position Analysis\n\n  Where do NHL shots come from, and what makes a shot dangerous?\n  This project explores over 2 million shot attempts across 19 seasons (2007–2025)\n  to find out.\n\n\n\n  \n    The Story\n    A data-driven narrative exploring shot patterns, player positions, and where goals really come from.\n  \n  \n    Explore the Data\n    Interactive shot maps broken down by season and player position. Filter, compare, and dig in.\n  \n\n\n  \n    Shot data is sourced from MoneyPuck and includes\n    all shot attempts (shots on goal, missed shots, blocked shots) as well as goals.\n    Positions covered: Center, Defense, Left Wing, and Right Wing."
+  }
+]
