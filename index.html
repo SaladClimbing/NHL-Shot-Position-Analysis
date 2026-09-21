@@ -200,6 +200,22 @@ ul.task-list li input[type="checkbox"] {
     <p>Interactive shot maps broken down by season and player position. Filter, compare, and dig in.</p>
   </a>
 </div>
+<div style="max-width:700px; margin:2rem auto; text-align:center;">
+<h2 style="font-size:1.3rem; margin-bottom:0.5rem;" class="anchored">Shot Map Preview</h2>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/preview-shot-map-1.png" class="img-fluid figure-img" width="768"></p>
+</figure>
+</div>
+</div>
+</div>
+<p style="font-size:0.9rem; color:#888; margin-top:0.5rem;">
+  Shot locations for the 2025 season.
+  <a href="./exploration.html">Explore all seasons interactively →</a>
+</p>
+</div>
 <div style="max-width:600px; margin:2rem auto; text-align:center; font-size:0.95rem; color:#888; line-height:1.7;">
   <p>
     Shot data is sourced from <a href="https://moneypuck.com">MoneyPuck</a> and includes
@@ -284,7 +300,7 @@ ul.task-list li input[type="checkbox"] {
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp('/' + window.location.host + '/');
+        var filterRegex = new RegExp("https:\/\/SaladClimbing\.github\.io\/NHL-Shot-Position-Analysis\/");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
